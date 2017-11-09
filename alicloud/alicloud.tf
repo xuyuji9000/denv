@@ -10,7 +10,7 @@ resource "alicloud_key_pair" "key_pair" {
 }
 
 resource "alicloud_instance" "web" {
-    availability_zone          = "${var.region}-a"
+    availability_zone          = "${var.region}-b"
     image_id                   = "ubuntu_16_0402_64_20G_alibase_20170818.vhd"
     
     instance_type              = "ecs.n1.tiny"
