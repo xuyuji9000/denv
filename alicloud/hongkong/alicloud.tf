@@ -9,11 +9,11 @@ resource "alicloud_key_pair" "key_pair" {
     key_file = "${var.key_file}"
 }
 
-resource "alicloud_instance" "web" {
+resource "alicloud_instance" "dev" {
     availability_zone          = "${var.region}-b"
     image_id                   = "ubuntu_16_0402_64_20G_alibase_20170818.vhd"
     
-    instance_type              = "ecs.n1.tiny"
+    instance_type              = "ecs.n1.small"
     is_outdated                = true
     system_disk_category       = "cloud_efficiency"
     instance_name              = "web"
@@ -63,5 +63,5 @@ resource "alicloud_security_group_rule" "ssh" {
 }
 
 output "ip" {
-    value = "${alicloud_instance.web.public_ip}"
+    value = "${alicloud_instance.dev.public_ip}"
 }
