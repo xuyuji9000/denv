@@ -52,6 +52,16 @@ resource "alicloud_security_group_rule" "web-1" {
     cidr_ip           = "0.0.0.0/0"
 }
 
+resource "alicloud_security_group_rule" "ssl" {
+    type              = "ingress"
+    ip_protocol       = "tcp"
+    port_range        = "443/443"
+    policy            = "accept"
+    priority          = 1
+    security_group_id = "${alicloud_security_group.default.id}"
+    cidr_ip           = "0.0.0.0/0"
+}
+
 resource "alicloud_security_group_rule" "ssh" {
     type              = "ingress"
     ip_protocol       = "tcp"
