@@ -6,3 +6,6 @@ variable "region" {
 variable "ami" {
     default = "ami-a163b4cc"
 }
+variable "instance_type" {
+	default = "t2.micro"
+}
